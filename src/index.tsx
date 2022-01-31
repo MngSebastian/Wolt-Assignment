@@ -1,15 +1,6 @@
 import ReactDOM from "react-dom";
+import App from "./components/App";
 import React from "react";
-import DeliveryFeeCalculator from "./components/DeliveryFeeCalculator";
-
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <DeliveryFeeCalculator />
-      </div>
-    );
-  }
-}
+import "./style.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));

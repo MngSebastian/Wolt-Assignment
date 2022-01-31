@@ -1,3 +1,42 @@
-* {
-  font-family: "Roboto", sans-serif;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    margin: 0;
+    height: 95vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 32vh;
+    width: 35vh;
+    background-color: white;
+    box-shadow: 0px 1px 15px 10px rgba(0, 0, 0, 0.2);
+}
+
+.label-input {
+    display: flex;
+    height: 15vh;
+    width: 15vw;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    width: 6vw;
+}
+.inputs {
+    width: 12vw;
+}
+
+.labels > label {
+    margin-bottom: 2vh;
+}
+.inputs > input {
+    margin-bottom: 2vh;
 }
