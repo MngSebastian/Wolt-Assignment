@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import surchargesCalc from "../utils/surchargesCalc";
+import deliveryFeeCalc from "../utils/deliveryFeeCalc";
 
 export default function DeliveryFeeCalculator() {
     const [cartValue, setCartValue] = useState<number>(0);
@@ -10,27 +12,17 @@ export default function DeliveryFeeCalculator() {
     const [deliveryFee, setDeliveryFee] = useState<number>(0);
     const [surcharge, setSurcharge] = useState<number>(0);
 
-    // Free delivery for Cart Values of 100 or more.
-    // Calculate Delivery fee for cart values under 100 depending on the time of the day.
-    // Calculate 'Outside Rush Hour' delivery fee and surcharges.
     const handleClick = () => {
-        let difference: number = 10 - cartValue;
+        // Added this because i noticed a bug, please refer to Readme file.
+        if (cartValue < 1 || deliveryDistance < 1 || amountItems < 1) {
+            return null;
+        }
         let surcharge: number = 0;
         let deliveryFee: number = 0;
-        // Surcharges
-        if (cartValue < 10 && amountItems <= 4) {
-            surcharge = difference;
-        } else if (cartValue < 10 && amountItems > 4) {
-            surcharge = difference + (amountItems - 4) / 2;
-        } else if (cartValue >= 10 && amountItems > 4) {
-            surcharge = (amountItems - 4) / 2;
-        }
+        // Calculating Surcharges
+        surcharge = surchargesCalc(cartValue, amountItems);
         // Delivery Fee.
-        if (deliveryDistance <= 1000) {
-            deliveryFee = 2;
-        } else {
-            deliveryFee = 2 + Math.ceil((deliveryDistance - 1000) / 500) * 1;
-        }
+        deliveryFee = deliveryFeeCalc(deliveryDistance);
         // Calculate delivery fee and surcharges outside 'Rush Hour'.
         if (time < 15 || time >= 19) {
             if (cartValue >= 100) {
@@ -51,7 +43,7 @@ export default function DeliveryFeeCalculator() {
                 setSurcharge(surcharge * 1.1);
             }
         }
-
+        // fix this?
         setDeliveryPrice(
             deliveryPrice + cartValue + deliveryDistance + amountItems
         );
@@ -76,7 +68,7 @@ export default function DeliveryFeeCalculator() {
                         required
                         onChange={(e) => setCartValue(e.target.valueAsNumber)}
                     />
-                    <label>&euro;</label>
+                    <label> &euro;</label>
                     <input
                         value={deliveryDistance}
                         type="number"
@@ -101,10 +93,10 @@ export default function DeliveryFeeCalculator() {
                     />
                 </div>
             </div>
-            <div>
+            <div className="btn-div">
                 <button onClick={handleClick}>Calculate delivery price</button>
 
-                <p>Delivery Price {(surcharge + deliveryFee).toFixed(2)} $;</p>
+                <p>Delivery Price {(surcharge + deliveryFee).toFixed(2)} $</p>
             </div>
         </div>
     );
