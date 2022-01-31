@@ -7,6 +7,7 @@
     } else {
         deliveryFee = 2 + Math.ceil((deliveryDistance - 1000) / 500) * 1;
     }
+    
      return deliveryFee
 }
 

@@ -7,7 +7,7 @@ export default function DeliveryFeeCalculator() {
     const [deliveryDistance, setDeliveryDistance] = useState<number>(0);
     const [amountItems, setAmountItems] = useState<number>(0);
     const [dateTime, setDateTime] = useState<string>("");
-    const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
+    // const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     let time: number = Number(dateTime.slice(11, 13));
     const [deliveryFee, setDeliveryFee] = useState<number>(0);
     const [surcharge, setSurcharge] = useState<number>(0);
@@ -44,9 +44,9 @@ export default function DeliveryFeeCalculator() {
             }
         }
         // fix this?
-        setDeliveryPrice(
-            deliveryPrice + cartValue + deliveryDistance + amountItems
-        );
+        // setDeliveryPrice(
+        //     deliveryPrice + cartValue + deliveryDistance + amountItems
+        // );
     };
     if (deliveryFee + surcharge > 15) {
         setSurcharge(0);
