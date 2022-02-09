@@ -10,7 +10,7 @@ describe("Function must return deliveryFee", () => {
         // ASSERT
         expect(result).toBe(2)
     })
-
+// asd
     test("Returns deliveryFee if deliveryDistance is bigger than 1000m", () => {
         // ARRANGE
         const deliveryDistance = 1501; // fake data

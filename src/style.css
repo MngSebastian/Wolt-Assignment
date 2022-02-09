@@ -23,7 +23,7 @@ body {
     height: 45vh;
     width: 60vh;
     border-radius: 30px;
-    background-color: rgba(48, 51, 107, 0.5);
+    /* background-color: rgba(48, 51, 107, 0.5); */
     box-shadow: 0px 1px 15px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -62,6 +62,9 @@ body {
 }
 
 .btn-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 5vh;
     color: white;
 }
@@ -69,4 +72,26 @@ body {
 .btn-div > p {
     color: white;
     font-size: 18px;
+}
+.btn-div > button {
+    outline: none;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid white;
+    height: 5vh;
+    width: 25vh;
+}
+.btn-div > button:hover {
+    box-shadow: 0px 1px 15px 2px rgba(45, 219, 253, 1);
+}
+
+body li a {
+    color: #00ff00;
+}
+
+ul > li {
+    color: red;
+    display: inline;
 }

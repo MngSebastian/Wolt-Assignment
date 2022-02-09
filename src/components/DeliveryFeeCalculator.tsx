@@ -3,25 +3,30 @@ import surchargesCalc from "../utils/surchargesCalc";
 import deliveryFeeCalc from "../utils/deliveryFeeCalc";
 
 export default function DeliveryFeeCalculator() {
-    const [cartValue, setCartValue] = useState<number>(0);
+    const [cartValue, setCartValue] = useState<number>(0.0);
     const [deliveryDistance, setDeliveryDistance] = useState<number>(0);
     const [amountItems, setAmountItems] = useState<number>(0);
     const [dateTime, setDateTime] = useState<string>("");
-    // const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     let time: number = Number(dateTime.slice(11, 13));
     const [deliveryFee, setDeliveryFee] = useState<number>(0);
     const [surcharge, setSurcharge] = useState<number>(0);
 
     const handleClick = () => {
-        // Added this because i noticed a bug, please refer to Readme file.
-        if (cartValue < 1 || deliveryDistance < 1 || amountItems < 1) {
+        // You should not be able to calculate the delivery price if cartValue,
+        // deliveryDistance, amountItems is 0 or if time has not been inputed yet.
+        if (
+            cartValue < 1 ||
+            deliveryDistance < 1 ||
+            amountItems < 1 ||
+            dateTime == ""
+        ) {
             return null;
         }
         let surcharge: number = 0;
         let deliveryFee: number = 0;
         // Calculating Surcharges
         surcharge = surchargesCalc(cartValue, amountItems);
-        // Delivery Fee.
+        // Calculating Delivery Fee.
         deliveryFee = deliveryFeeCalc(deliveryDistance);
         // Calculate delivery fee and surcharges outside 'Rush Hour'.
         if (time < 15 || time >= 19) {
@@ -43,10 +48,6 @@ export default function DeliveryFeeCalculator() {
                 setSurcharge(surcharge * 1.1);
             }
         }
-        // fix this?
-        // setDeliveryPrice(
-        //     deliveryPrice + cartValue + deliveryDistance + amountItems
-        // );
     };
     if (deliveryFee + surcharge > 15) {
         setSurcharge(0);
@@ -65,6 +66,7 @@ export default function DeliveryFeeCalculator() {
                     <input
                         value={cartValue}
                         type="number"
+                        // step="0.0"
                         required
                         onChange={(e) => setCartValue(e.target.valueAsNumber)}
                     />

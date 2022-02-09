@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643647218415" clover="3.2.0">
-  <project timestamp="1643647218415" name="All files">
-    <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1" elements="9" coveredelements="9" complexity="0" loc="6" ncloc="6" packages="1" files="1" classes="1"/>
+<coverage generated="1643704169476" clover="3.2.0">
+  <project timestamp="1643704169476" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="13" coveredconditionals="13" methods="2" coveredmethods="2" elements="31" coveredelements="31" complexity="0" loc="16" ncloc="16" packages="1" files="2" classes="2"/>
     <file name="deliveryFeeCalc.ts" path="/Users/roonake/Desktop/Wolt-Assignment/src/utils/deliveryFeeCalc.ts">
       <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="3" count="2" type="stmt"/>
@@ -10,6 +10,19 @@
       <line num="8" count="1" type="stmt"/>
       <line num="11" count="2" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
+    </file>
+    <file name="surchargesCalc.ts" path="/Users/roonake/Desktop/Wolt-Assignment/src/utils/surchargesCalc.ts">
+      <metrics statements="10" coveredstatements="10" conditionals="11" coveredconditionals="11" methods="1" coveredmethods="1"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="6" count="3" type="cond" truecount="4" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="cond" truecount="3" falsecount="0"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

@@ -3,7 +3,7 @@ import DeliveryFeeCalculator from "./DeliveryFeeCalculator";
 
 export default function App() {
     return (
-        <div>
+        <div className="content">
             <DeliveryFeeCalculator />
         </div>
     );

@@ -8,7 +8,7 @@
     "dev": "webpack serve",
     "lint": "./node_modules/.bin/eslint",
     "prepare": "husky install",
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
